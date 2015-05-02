@@ -12,47 +12,63 @@ def get_mailchimp_api():
     return mailchimp.Mailchimp(MAILCHIMP_API_KEY)
 
 
-
-# Create your views here.
 def index(request):
+    """
+    Proof of concept using https://github.com/mailchimp/mcapi2-python-examples
+
+    My repo: https://github.com/Edinunzio/mailchimppy
+
+    After starting up the server, going to localhost:8000 triggers
+    hardcoded email sent to subscribers grouped by mailchimp list id
+
+
+    Neccesary credentials kept out of git:
+    *************************************
+
+    MAILCHIMP_API_KEY = '<got my own key>'
+    DEVELOPER_LIST_ID = '<list id for the poorly named list, "developer list">'
+    USERNAME='<sender>'
+    PASSWORD='<sender's email password>'
+
+    *************************************
+    :param request:
+    :return:
+    """
     template = """
-    <table>
-    <tr>
-    <td>Col1</td>
-    <td>Col2</td>
-    <td>Col3</td>
-    </tr>
-    <tr>
-    <td>aaa</td>
-    <td>bbb</td>
-    <td>ccc</td>
-    </tr>
+    <table width="600" style="border:5px solid #000;">
+        <tr>
+            <td>Col1</td>
+            <td>Col2</td>
+            <td>Col3</td>
+        </tr>
+        <tr>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+        </tr>
     </table>
     """
+
+    # passes mailchimp api key
     m = get_mailchimp_api()
+
+    # getting all the emails from a mailchimp list. i happened to name
+    # my list "DEVELOPER_LIST" so, oops?
+
     lists = m.lists.list({'list_id': DEVELOPER_LIST_ID})
-    list = lists['data'][0]
     to = m.lists.members(DEVELOPER_LIST_ID)['data']
-    recipients = []
-    for e in to:
-        recipients.append(e['email'])
+    recipients = [recipient['email'] for recipient in to]
 
-    """subject, from_email, to = 'hello', 'e.dinunzio@gmail.com', recipients
-    text_content = 'Plain text'
-    html_content = '<p>This is an <strong>important</strong> message.</p>'
-    #msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
-    msg.attach_alternative(html_content, "text/html")
-    msg.send()
-    """
+    # setting up the email
 
-    # msg = MIMEMultipart()
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = "Hello World"
+    msg['Subject'] = "Hello World again!"
     msg['From'] = 'earlsammich@gmail.com'
     msg['To'] = ", ".join(recipients)
     msg.preamble = msg['Subject']
     msg.attach(MIMEText(template, 'html'))
+
+    # using gmail's smtp
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
@@ -60,7 +76,7 @@ def index(request):
     server.sendmail('earlsammich@gmail.com', recipients, msg.as_string())
     server.quit()
 
+    # I just got lazy here I know...
 
-    # return  HttpResponseRedirect('http://www.google.com')
     return HttpResponse('sent')
 
