@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mailchimp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,3 +105,11 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+try:
+    from local import *
+except ImportError as e:
+    print e.message
+
