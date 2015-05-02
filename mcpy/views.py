@@ -63,7 +63,7 @@ def index(request):
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = "Hello World again!"
-    msg['From'] = 'earlsammich@gmail.com'
+    msg['From'] = USERNAME
     msg['To'] = ", ".join(recipients)
     msg.preamble = msg['Subject']
     msg.attach(MIMEText(template, 'html'))
@@ -73,7 +73,7 @@ def index(request):
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.starttls()
     server.login(USERNAME, PASSWORD)
-    server.sendmail('earlsammich@gmail.com', recipients, msg.as_string())
+    server.sendmail(USERNAME, recipients, msg.as_string())
     server.quit()
 
     # I just got lazy here I know...
