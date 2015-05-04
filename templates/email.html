@@ -1,22 +1,473 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Hello World</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <!-- So that mobile webkit will display zoomed in -->
+    <meta name="format-detection" content="telephone=no">
+    <!-- disable auto telephone linking in iOS -->
+
+    <title>Email Layout</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800"
+          rel="stylesheet" type="text/css">
+    <style type="text/css">
+
+        /* Resets: see reset.css for details */
+        .ReadMsgBody {
+            width: 100%;
+            background-color: #ebebeb;
+        }
+
+        .ExternalClass {
+            width: 100%;
+            background-color: #ebebeb;
+        }
+
+        .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+            line-height: 100%;
+        }
+
+        body {
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            color: #4b5051;
+            background-color: #1295ff;
+            font-size: 14px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        .yshortcuts a {
+            border-bottom: none !important;
+        }
+
+        @import url('http://fonts.googleapis.com/css?family=Open+Sans');
+        @import url('//fonts.googleapis.com/css?family=Open+Sans');
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .columns-container {
+            width: 100%;
+        }
+
+        .promo-heading {
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-weight: normal;
+            padding-top: 10px;
+        }
+
+        .promo-copy {
+            color: #fff;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        #body {
+            position: relative;
+            width: 590px;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+            padding-bottom: 50px;
+        }
+
+        .card {
+            position: relative;
+            width: 232px;
+            height: auto;
+            background-color: #fff;
+        }
+
+        .image {
+            position: relative;
+            max-height: 121px;
+            width: 120px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+        }
+
+        .list-price {
+            text-decoration: line-through;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        .expiration-date {
+            text-align: left;
+            padding-bottom: 10px;
+        }
+
+        div.card .content {
+            position: relative;
+            margin: 20px;
+        }
+
+        div.store-logo {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            height: 40px;
+        }
+
+        div.card .sale-price {
+            font-size: 36px;
+            color: #6bc22b;
+            font-weight: bold;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+
+        #more-savings {
+            position: relative;
+        }
+
+        #more-savings a img {
+            /*width: 475px;*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .show-more {
+            position: absolute;
+            top: 30px;
+            left: 110px;
+            color: #fff;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        #more-savings a div img {
+            position: absolute;
+            right: -70px;
+            width: 14px;
+            height: 23px;
+        }
+
+        #container {
+            margin-bottom: 50px;
+        }
+
+        #footer {
+            position: relative;
+            padding-bottom: 20px;
+            margin-top: 0px;
+            background-color: #fff;
+            width: 100%;
+            height: 180px;
+        }
+
+        #footer p.copyright {
+            position: relative;
+            text-align: center;
+            font-size: 15px;
+            top: 50px;
+            color: #484848;
+        }
+
+        div.get-stockup {
+            position: relative;
+            width: 410px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0px;
+            top: 40px;
+        }
+
+        .getapp {
+            display: inline-block;
+        }
+
+        div#app-promo {
+            position: relative;
+            margin-top: 45px;
+        }
+
+        div#app-promo img {
+            position: relative;
+            left: 340px;
+        }
+
+        div#app-promo h4 {
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            position: relative;
+            width: 155px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        td[class="logo"] .promo-heading {
+            color: #fff;
+        }
+
+        /* Constrain email width for small screens */
+        @media screen and (max-width: 600px) {
+            table[class="container"] {
+                width: 95% !important;
+            }
+        }
+
+        /* Give content more room on mobile */
+        @media screen and (max-width: 480px) {
+            td[class="container-padding"] {
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+        }
+
+        /* Styles for forcing columns to rows */
+        @media only screen and (max-width: 600px) {
+
+            /* force container columns to (horizontal) blocks */
+            td[class="force-col"] {
+                display: block;
+                padding-right: 0 !important;
+            }
+
+        }
+
+    </style>
+    <script src="http://research.stockup.co/personalized_deals/js/jquery.min.js"></script>
+    <script src="http://research.stockup.co/personalized_deals/js/handlebars.js"></script>
+    <script src="http://research.stockup.co/personalized_deals/js/waterfall.min.js"></script>
+    <script>
+        $(function () {
+            $('#container').waterfall({
+                itemCls: 'card',
+                colWidth: 232,
+                gutterWidth: 18,
+                gutterHeight: 18,
+                maxPage: 6,
+                loadingMsg: ''
+            })
+        });
+    </script>
 </head>
-<body>
-Supposed to be an email but at least im html!
-<table style="border:1px solid #000;">
+<body style="margin:0;" bgcolor="#1295FF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- 100% wrapper  -->
+<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" bgcolor="#1295FF">
     <tr>
-        <td>Col1</td>
-        <td>Col2</td>
-        <td>Col3</td>
+        <td align="center" valign="top" bgcolor="#1295FF" style="background-color: #1295FF">
+
+            <!-- 600px container  -->
+            <table border="0" width="600" cellpadding="0" cellspacing="0" class="container" bgcolor="#1295FF">
+                <tr>
+                    <td class="container-padding" bgcolor="#1295FF"
+                        style="background-color: #1295FF; padding-left: 30px; padding-right: 30px; line-height: 20px; font-family: 'Open Sans', Arial, sans-serif;"
+                        align="left">
+
+                        <!-- ### BEGIN CONTENT ### -->
+
+                        <!-- Logo -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="columns-container">
+                            <tr>
+                                <td align="center" class="logo" style="margin:auto;padding-top:8px;"><img alt="StockUp!"
+                                                                                                          class="logo"
+                                                                                                          src="http://research.stockup.co/personalized_deals/img/logo-email.png">
+
+                                    <h3 style="color:#fff;" class="promo-heading">Best Deals This Week</h3>
+
+                                    <p class="promo-copy">Get the StockUp app save your favorite items!<br>
+                                        We'll send you updates when they go on sale.</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- /Logo -->
+
+                        <!-- Hero1 -->
+                        <table border="0" cellpadding="0" cellspacing="0" class="columns-container" id="body">
+                            <tr>
+                                <td align="center" class="" style="height:501px; width:640px;">
+                                    <div id="container" class="waterfall">
+                                        <div class="card" style="background-color:#fff;">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/20/18/88358c13-59ef-4a55-9252-8fb3b06594c9&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$10.99</div>
+                                                <div class="sale-price">$6.99</div>
+                                                <div class="expiration-date">exp 05/09/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2014/3/17/22/b705e373-fcf3-4d2d-b7f0-bb366531906c&amp;width=120&amp;height=150">
+
+                                                <div>Dawn Ultra Dish Soap<br>9 Fl Oz Bottle</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/20/19/5b2dae6f-67da-4055-9216-675053c3e274&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$3.99</div>
+                                                <div class="sale-price">$2.99</div>
+                                                <div class="expiration-date">exp 04/09/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2014/1/25/9/649db54c-2762-46d5-af18-5d7a04829469&amp;width=120&amp;height=150">
+
+                                                <div>Pup-Peroni Lean Beef Flavor Dog Snacks<br>5.6 Oz Bag</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/20/19/9acae2e1-dcda-4209-b2cf-1ef1d1315322&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$4.79</div>
+                                                <div class="sale-price">$3.99</div>
+                                                <div class="expiration-date">exp 06/30/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/8/18/12/fcb66878-17c7-4800-b29e-79cbebfafba1&amp;width=120&amp;height=150">
+
+                                                <div>Vermont Bread Soft Whole Wheat Bread<br>24 Oz Bag</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/20/19/4860ba2f-1220-4f60-935a-d1bc7e647b47&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$15.42</div>
+                                                <div class="sale-price">$1.32</div>
+                                                <div class="expiration-date">exp 04/09/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/4/10/15/408789f1-628d-470d-bf74-cd19c9463420&amp;width=120&amp;height=150">
+
+                                                <div>Gerber Graduates Fruit Pick Ups Diced Apples Toddler Food<br>4.5 Oz
+                                                    Container
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/20/19/5b2dae6f-67da-4055-9216-675053c3e274&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$4.59</div>
+                                                <div class="sale-price">$0.85</div>
+                                                <div class="expiration-date">exp 05/09/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/9/21/0/d4523097-6b2a-4237-b0c0-be88a271d6d9&amp;width=120&amp;height=150">
+
+                                                <div>Activia 0% Fat Vanilla Greek Yogurt<br>4 Pack 5.3 Oz Cups</div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="content">
+                                                <div class="store-logo">
+                                                    <img alt="CVS logo" class="store-logo"
+                                                         src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2013/7/21/3/399849d0-56fe-4d4c-a65c-bf9344986451&amp;width=40&amp;height=40">
+                                                </div>
+                                                <div class="list-price">$25.99</div>
+                                                <div class="sale-price">$6.49</div>
+                                                <div class="expiration-date">exp 04/09/2015</div>
+                                                <img class="image" alt="image"
+                                                     src="http://prod-1.yopocket.com:8080/imagestore/getimage?imageId=2014/2/1/5/0a84bb69-abbb-4192-b796-feb4043eae58&amp;width=120&amp;height=150">
+
+                                                <div>Keratin Complex Complex Vanilla Bean Deep Conditioner<br>7 Oz Tube
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- /Products -->
+
+
+                        <!-- More Savings -->
+                        <br>
+                        <br>
+                        <table border="0" cellpadding="0" cellspacing="0" class="columns-container">
+                            <tr>
+                                <td align="center" class="force-col"
+                                    style="background-image:url('http://research.stockup.co/personalized_deals/img/btn-email.png'); background-repeat:no-repeat; background-position-x:60px;">
+                                    <div id="more-savings">
+                                        <a href="http://stockupsales.com/">
+                                            <div class="show-more">Show me more savings!<img alt="Show me more savings!"
+                                                                                             src="http://research.stockup.co/personalized_deals/img/arrow-email.png">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div id="app-promo">
+                                        <h4>Get the app and save<br>more money on your<br>favorite items!</h4>
+                                        <img alt="App favorite."
+                                             src="http://research.stockup.co/personalized_deals/img/img-faves-email.png">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <!-- /Footer -->
+
+
+                        <!--/ end .columns-container-->
+
+                    </td>
     </tr>
     <tr>
-        <td>aaa</td>
-        <td>bbb</td>
-        <td>ccc</td>
+        <td class="container-padding" bgcolor="#1295FF"
+            style="background-color: #1295FF; padding-left: 30px; padding-right: 30px; font-size: 13px; line-height: 20px; font-family: Helvetica, sans-serif; color: #333;"
+            align="left">
+
+
+            <!-- ### END CONTENT ### -->
+            <br><br>
+
+        </td>
+    </tr>
+            </table>
+            <!--/600px container -->
+            <br/>
+        </td>
+    </tr>
+
+</table>
+<br/>
+<br>
+<table border="0" cellpadding="0" cellspacing="0" style="background-color: #fff; width:100%; height:180px;">
+    <tr>
+        <td class="force-col" style="background-color: #fff;">fffff
+        </td>
+
     </tr>
 </table>
+<!--/100% wrapper-->
 </body>
 </html>
+
