@@ -147,7 +147,7 @@ def index(request):
                 <td class="force-col" style="padding-right: 20px;" valign="top">
 
                     <!-- ### COLUMN 1 ### -->
-                    <table align="left" style="display:inline-block; margin-left:40px; width:200px;">
+                    <table align="left" style="display:inline-block; margin-left:40px; width:230px;">
                         <tr>
                             <td align="center" class="card">
                                 <div class="content" style=" background-color:#fff; margin-bottom:10px;">
@@ -183,7 +183,7 @@ def index(request):
 
 
 
-                    <table style="display:inline-block; width:200px; margin-left:10px;" align="right">
+                    <table style="display:inline-block; width:230px;margin-left:10px;" align="right">
                         <tr>
                             <td align="center" class="card" align="right">
                                 <div class="content" style=" background-color:#fff; margin-bottom:10px;">
@@ -224,34 +224,39 @@ def index(request):
 </tr>
 <tr>
     <td class="container-padding"  style="padding-left: 30px; padding-right: 30px; font-size: 13px; line-height: 20px; font-family: Open Sans, sans-serif; color: #333;" align="left">
-        <table border="0" cellpadding="0" cellspacing="0" class="columns-container" style="width:100%; height:82px;">
+        <table border="0" cellpadding="0" cellspacing="0" class="columns-container" style="width:590px; height:82px;">
             <tr>
+                <td style="width:90px;">&nbsp;</td>
                 <td align="center" class="force-col" style="background-image:url('http://research.stockup.co/personalized_deals/img/btn-email.png'); background-repeat:no-repeat;">
                     <div id="more-savings">
                         <a href="http://stockupsales.com/" style="text-decoration:none;">
-                            <div class="show-more" style="color: #fff; font-size: 30px; font-weight:400; text-align:left; margin-left:40px;">Show me more savings!<img style="margin-left:60px;" alt="Show me more savings!" src="http://research.stockup.co/personalized_deals/img/arrow-email.png"></div>
+                            <div class="show-more" style="color: #fff; font-size: 30px; font-weight:400; text-align:left; margin-left:80px;">Show me more savings!<img style="margin-left:30px;" alt="Show me more savings!" src="http://research.stockup.co/personalized_deals/img/arrow-email.png"></div>
                         </a>
                     </div>
                 </td>
             </tr>
         </table>
         <br>
-        <table border="0" cellpadding="0" cellspacing="0" class="columns-container" style="width:100%;">
+        <table border="0" cellpadding="0" cellspacing="0" class="columns-container" style="width:580px; margin-left:50px; margin-bottom:-6px;">
             <tr>
-                <td align="left">
+                <td style="width:40px;">&nbsp;</td>
+                <td align="left" style="width:270px;">
                     <div id="app-promo">
                         <h4 style="color:#fff; font-family:Open Sans, sans-serif; font-weight:600; font-size:30px;line-height:1em;">Get the app and save more money on your favorite items!</h4>
 
                     </div>
                 </td>
                 <td align="right">
-                    <img alt="App favorite." src="http://research.stockup.co/personalized_deals/img/img-faves-email.png">
+                    <img alt="App favorite."  src="http://research.stockup.co/personalized_deals/img/img-faves-email.png">
                 </td>
             </tr>
         </table>
         <!-- ### END CONTENT ### -->
 
     </td>
+</tr>
+<tr>
+    <td style="width:100%; height:6px; background-color:#fff;"></td>
 </tr>
       </table>
       <!--/600px container -->
@@ -260,6 +265,19 @@ def index(request):
   </tr>
 </table>
 <!--/100% wrapper-->
+
+<table border="0" cellpadding="0" cellspacing="0" class="columns-container" style="width:100%;padding-top:30px; margin-top:50px;">
+    <tr>
+        <td align="center">
+            <div class="get-stockup">
+                <a href="http://itunes.apple.com/us/app/pricespotting/id647261847?mt=8&amp;uo=4"><img class="ios getapp" alt="Get StockUp for iOS" src="http://research.stockup.co/personalized_deals/img/btn-applestore-email.png"></a>
+                <a href="http://play.google.com/store/apps/details?id=com.bluetigerlabs.pricespotting"><img class="android getapp" alt="Get StockUp for Android" src="http://research.stockup.co/personalized_deals/img/btn-googleplay-email.png"></a>
+            </div>
+            <p class="copyright" style="font-size:15px;">&copy; StockUp Commerce LLC. Privacy | Terms</p>
+        </td>
+    </tr>
+</table>
+
 
 </body>
 </html>
