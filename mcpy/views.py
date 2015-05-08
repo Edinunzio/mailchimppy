@@ -3,6 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 from django.http import HttpResponse
+from django.template.loader import render_to_string
 import mailchimp
 
 from utils import *
@@ -34,20 +35,10 @@ def index(request):
     :param request:
     :return:
     """
-    template = """
-    <table width="600" style="border:5px solid #000;">
-        <tr>
-            <td>Col1</td>
-            <td>Col2</td>
-            <td>Col3</td>
-        </tr>
-        <tr>
-            <td>aaa</td>
-            <td>bbb</td>
-            <td>ccc</td>
-        </tr>
-    </table>
-    """
+
+    # template2 = get_template('mcpy/personal_email.html')
+    # template = get_template('mcpy/personal_email.html')
+    template = render_to_string('mcpy/personal_email.html')
 
     # passes mailchimp api key
     m = get_mailchimp_api()
@@ -62,7 +53,7 @@ def index(request):
     # setting up the email
 
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = "Hello World again!"
+    msg['Subject'] = "template!"
     msg['From'] = USERNAME
     msg['To'] = ", ".join(recipients)
     msg.preamble = msg['Subject']
@@ -79,4 +70,6 @@ def index(request):
     # I just got lazy here I know...
 
     return HttpResponse('sent')
+
+
 
