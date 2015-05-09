@@ -61,9 +61,9 @@ def index(request):
 
     # using gmail's smtp
 
-    server = smtplib.SMTP('smtp.gmail.com:587')
+    server = smtplib.SMTP('smtp.mandrillapp.com:587')
     server.starttls()
-    server.login(USERNAME, PASSWORD)
+    server.login(USERNAME, MANDRILL_API_KEY)
     server.sendmail(USERNAME, recipients, msg.as_string())
     server.quit()
 

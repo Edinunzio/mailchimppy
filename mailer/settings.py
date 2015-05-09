@@ -115,7 +115,7 @@ STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
-    from local import *
+    from local.settings import *
 except ImportError as e:
     print e.message
 
